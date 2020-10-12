@@ -2,7 +2,7 @@
 
 class dbModel
 {
-    static private PDO $pdoInstance;
+    private static $pdoInstance;
     private $host = '127.0.0.1';
     private $db = 'db_cours2';
     private $db_user = 'root';

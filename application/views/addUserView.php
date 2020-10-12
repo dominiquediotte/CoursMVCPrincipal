@@ -9,14 +9,14 @@ echo '<script type="text/javascript" src="/' . PATH_PUBLIC . '/js/addUser.js"></
         <div class="col-md-6">
             <div class="form-group">
                 <label for="first-name">Prénom</label>
-                <input type="text" class="form-control" id="first-name" name="first-name" required>
+                <input type="text" class="form-control" id="first-name" name="first_name" required>
                 <div class="invalid-feedback">
                     Le prénom est requis.
                 </div>
             </div>
             <div class="form-group">
                 <label for="last-name">Nom</label>
-                <input type="text" class="form-control" id="last-name" name="last-name" required>
+                <input type="text" class="form-control" id="last-name" name="last_name" required>
                 <div class="invalid-feedback">
                     Le nom est requis.
                 </div>
@@ -30,7 +30,7 @@ echo '<script type="text/javascript" src="/' . PATH_PUBLIC . '/js/addUser.js"></
             </div>
             <div class="form-group">
                 <label for="phone">Numéro de téléphone</label>
-                <input type="tel" class="form-control" id="phone" name="phone" pattern="^\d{7}(\d{3})?$" required>
+                <input type="tel" class="form-control" id="phone" name="phone_number" pattern="^\d{7}(\d{3})?$" required>
                 <div class="invalid-feedback">
                     Un numéro de téléphone valide de 7 ou 10 chiffres est requis.
                 </div>
@@ -53,7 +53,7 @@ echo '<script type="text/javascript" src="/' . PATH_PUBLIC . '/js/addUser.js"></
             </div>
             <div class="form-group">
                 <label for="postal-code">Code postal</label>
-                <input type="text" class="form-control" id="postal-code" name="postal-code" required>
+                <input type="text" class="form-control" id="postal-code" name="postal_code" required>
                 <div class="invalid-feedback">
                     Un code postal valide sans espace (i.e. A2B3C4) est requis.
                 </div>
