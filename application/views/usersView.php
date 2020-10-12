@@ -6,7 +6,6 @@
         <th></th>
     </tr>
 <?php
-
     foreach($users as $user){
         echo '<tr id="user'.$user->get_id().'">';
         echo '<td>';

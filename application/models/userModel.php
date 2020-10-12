@@ -23,7 +23,7 @@
             $pdo = $this->getPDOInstance();
             $statementHandle = $pdo->query('CALL ' . self::GET_ALL_USERS_PROC_NAME . '();');
             
-            $users = $statementHandle->fetchAll(PDO::FETCH_CLASS, 'UserDTO'); // buuuuuuuuuuuuuuugggggggggggggggggggggggggggggggg
+            $users = $statementHandle->fetchAll(PDO::FETCH_CLASS, 'UserDTO');
             
             if ($users === false)
             {
@@ -35,6 +35,23 @@
 
         public function get_user(int $user_id){
             //exercice cours 2
+            $pdo = $this->getPDOInstance();
+            $statementHandle = $pdo->prepare('CALL ' . self::GET_USER_BY_ID_PROC_NAME . '(:id_user);');
+            try {
+                $statementHandle->execute([
+                    'id_user' => $user_id
+                ]);
+            } catch (PDOException $e) {
+                throw new Exception("Can't execute stored procedure: " . self::GET_USER_BY_ID_PROC_NAME . ".");
+            }
+            $users = $statementHandle->fetchAll(PDO::FETCH_CLASS, 'UserDTO');
+            
+            if ($users === false)
+            {
+                throw new NoUserFoundException();
+            }
+
+            return $users;
         }
 
         public function add_user(UserDTO $user){

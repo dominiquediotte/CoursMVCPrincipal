@@ -49,7 +49,15 @@ class UserController extends Controller
 
     private function show_one_user($id_user)
     {
-        //exercice cours 2
+        try {
+            $users = $this->user_model->get_user($id_user);
+            $data = array("users" => $users);
+            $view = new View("usersView.php");
+            $content = $view->render($data);
+            echo $this->render_template_with_content(self::USERS_PAGE_TITLE, $content);
+        } catch (NoUserFoundException $e) {
+            $this->render_error('Aucun usager trouvé', 'Aucun usager trouvé');
+        }
     }
 
     private function show_all_user()
